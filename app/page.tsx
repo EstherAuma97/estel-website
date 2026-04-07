@@ -33,10 +33,10 @@ export default function EstelGlobalEducationWebsite() {
   ];
 
   const steps = [
-    "Book a consultation and share your goals.",
-    "Get a clear school and application plan.",
-    "Prepare your documents with guided support.",
-    "Attend your visa interview with confidence.",
+    "Book a consultation and share your academic goals.",
+    "Receive a clear school and application plan.",
+    "Prepare your documents with structured guidance.",
+    "Approach your visa interview with confidence.",
   ];
 
   const faqs = [
@@ -46,11 +46,11 @@ export default function EstelGlobalEducationWebsite() {
     },
     {
       q: "Do you provide legal immigration advice?",
-      a: "No. This service does not provide legal advice. It offers educational guidance for students navigating the school application and visa preparation process.",
+      a: "No. Estel Global Education provides guidance based on personal experience and general educational support. This service does not provide legal immigration advice or representation.",
     },
     {
       q: "Who is this for?",
-      a: "This service is designed for Kenyan students who want clear, trustworthy support when applying to study in the United States.",
+      a: "This service is designed for international students, especially Kenyan students, who want support when applying for Master’s programs in the United States.",
     },
   ];
 
@@ -63,15 +63,15 @@ export default function EstelGlobalEducationWebsite() {
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                 Estel Global Education
               </p>
-              <h1 className="max-w-xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                Helping Kenyan students move to the U.S. for school with clarity and confidence.
+              <h1 className="max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                Helping international students, especially Kenyan students, secure U.S. Master’s admission and prepare for visa success with clear step by step guidance.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-                Get step by step guidance for university applications, document preparation, and visa interview readiness from someone who understands the journey.
+                Get support with school selection, applications, personal statements, and visa interview preparation from someone who understands the international student journey.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="#contact"
+                  href="https://wa.me/16163495970?text=Hi%20Esther%2C%20I%27m%20interested%20in%20guidance%20for%20Master%E2%80%99s%20admission%20in%20the%20U.S."
                   className="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
                 >
                   Book a Consultation
@@ -84,16 +84,16 @@ export default function EstelGlobalEducationWebsite() {
                 </a>
               </div>
               <p className="mt-4 text-sm text-slate-500">
-                Trusted guidance based on lived experience. Not legal immigration advice.
+                Reach out on WhatsApp at +1 (616) 349-5970 or email consultingestel@gmail.com. Estel Global Education provides guidance based on personal experience. We do not offer legal immigration advice or representation.
               </p>
             </div>
 
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl">
               <div className="rounded-3xl bg-slate-50 p-6">
-                <p className="text-sm font-semibold text-slate-500">What students need most</p>
+                <p className="text-sm font-semibold text-slate-500">What students usually need most</p>
                 <div className="mt-5 space-y-4">
                   {[
-                    "Choosing the right schools",
+                    "Choosing the right Master’s programs",
                     "Understanding the application process",
                     "Preparing strong documents",
                     "Getting ready for the visa interview",
@@ -114,18 +114,18 @@ export default function EstelGlobalEducationWebsite() {
         <div className="grid gap-8 rounded-[2rem] bg-slate-900 p-8 text-white lg:grid-cols-3">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-slate-300">Why Estel</p>
-            <h2 className="mt-3 text-2xl font-bold">A trustworthy guide in a space full of confusion.</h2>
+            <h2 className="mt-3 text-2xl font-bold">A trustworthy guide in a space where many students feel confused.</h2>
           </div>
           <div className="rounded-3xl bg-white/10 p-6">
             <h3 className="font-semibold">Clear Process</h3>
             <p className="mt-2 text-sm leading-7 text-slate-200">
-              Students get a simple, structured pathway instead of scattered information and costly mistakes.
+              Students receive a simple, structured path instead of scattered online advice and costly mistakes.
             </p>
           </div>
           <div className="rounded-3xl bg-white/10 p-6">
-            <h3 className="font-semibold">Personal Experience</h3>
+            <h3 className="font-semibold">Personal Insight</h3>
             <p className="mt-2 text-sm leading-7 text-slate-200">
-              Built by someone who understands the questions, pressure, and uncertainty international students face.
+              Built by Esther, who understands the questions, pressure, and uncertainty international students face.
             </p>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function EstelGlobalEducationWebsite() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Services</p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Choose the level of support you need.</h2>
           <p className="mt-4 text-slate-600">
-            Start with simple direction or choose full support for a more hands on experience through the application and visa preparation process.
+            Start with practical direction or choose full support for a more hands on experience through the Master’s application and visa preparation process.
           </p>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -155,7 +155,7 @@ export default function EstelGlobalEducationWebsite() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href="https://wa.me/16163495970?text=Hi%20Esther%2C%20I%27m%20interested%20in%20your%20services%20for%20U.S.%20Master%E2%80%99s%20applications."
                 className="mt-8 inline-block rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white"
               >
                 Get Started
@@ -187,10 +187,10 @@ export default function EstelGlobalEducationWebsite() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">About</p>
               <h3 className="mt-3 text-2xl font-bold">Built from real experience.</h3>
               <p className="mt-5 leading-8 text-slate-600">
-                Estel Global Education exists to give Kenyan students a trustworthy place to start. Instead of relying on confusing online advice or unverified agents, students receive clear guidance, honest expectations, and structured support throughout the process.
+                Estel Global Education exists to give international students, especially Kenyan students, a trustworthy place to start when applying for U.S. Master’s programs. Built by Esther, who has personally gone through the international student journey, the service is designed to make the process clearer, more honest, and less overwhelming.
               </p>
               <p className="mt-4 leading-8 text-slate-600">
-                The mission is simple: help students move forward with confidence, avoid common mistakes, and understand each step of the journey.
+                Instead of relying on confusing online advice or unverified agents, students receive clear guidance, honest expectations, and structured support for school applications, document preparation, and visa interview readiness.
               </p>
             </div>
           </div>
@@ -218,29 +218,29 @@ export default function EstelGlobalEducationWebsite() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-300">Contact</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                Ready to start your U.S. study journey?
+                Ready to start your U.S. Master’s journey?
               </h2>
               <p className="mt-4 max-w-xl leading-8 text-slate-300">
-                Reach out to book a consultation and get clarity on the next step for your school application and visa preparation.
+                Reach out to book a consultation and get clarity on the next step for your school applications and visa preparation.
               </p>
             </div>
             <div className="rounded-[2rem] bg-white p-8 text-slate-900 shadow-xl">
               <div className="space-y-4">
-                <div>
-                  <label className="mb-2 block text-sm font-medium">Full Name</label>
-                  <input className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none" placeholder="Your name" />
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm font-semibold text-slate-900">Contact Estel Global Education</p>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    WhatsApp: <a className="font-medium text-slate-900 underline" href="https://wa.me/16163495970?text=Hi%20Esther%2C%20I%27m%20interested%20in%20guidance%20for%20Master%E2%80%99s%20admission%20in%20the%20U.S.">+1 (616) 349-5970</a>
+                  </p>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                    Email: <a className="font-medium text-slate-900 underline" href="mailto:consultingestel@gmail.com">consultingestel@gmail.com</a>
+                  </p>
+                  <a
+                    href="https://wa.me/16163495970?text=Hi%20Esther%2C%20I%27m%20interested%20in%20guidance%20for%20Master%E2%80%99s%20admission%20in%20the%20U.S."
+                    className="mt-5 inline-block w-full rounded-2xl bg-slate-900 px-5 py-3 text-center text-sm font-semibold text-white"
+                  >
+                    Chat on WhatsApp
+                  </a>
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">Email</label>
-                  <input className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none" placeholder="Your email" />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">What do you need help with?</label>
-                  <textarea className="min-h-[120px] w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none" placeholder="Tell us where you are in the process" />
-                </div>
-                <button className="w-full rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white">
-                  Send Inquiry
-                </button>
               </div>
             </div>
           </div>
