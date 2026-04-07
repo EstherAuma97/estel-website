@@ -66,7 +66,19 @@ export default function EstelGlobalEducationWebsite() {
               </div>
 
               <p className="mt-4 text-sm text-slate-500">
-                WhatsApp +1 (616) 349-5970 | consultingestel@gmail.com
+                <a
+                  href="https://wa.me/16163495970?text=Hi%20Esther%2C%20I%27m%20interested%20in%20guidance%20for%20Master%E2%80%99s%20admission%20in%20the%20U.S."
+                  className="underline hover:text-slate-700"
+                >
+                  WhatsApp +1 (616) 349-5970
+                </a>{" "}
+                |{" "}
+                <a
+                  href="mailto:consultingestel@gmail.com"
+                  className="underline hover:text-slate-700"
+                >
+                  consultingestel@gmail.com
+                </a>
               </p>
             </div>
 
@@ -109,8 +121,8 @@ export default function EstelGlobalEducationWebsite() {
                 ))}
               </ul>
               <a
-                href="https://wa.me/16163495970"
-                className="mt-6 inline-block rounded-xl bg-slate-900 px-5 py-3 text-white text-sm"
+                href="https://wa.me/16163495970?text=Hi%20Esther%2C%20I%27m%20interested%20in%20your%20services%20for%20U.S.%20Master%E2%80%99s%20applications."
+                className="mt-6 inline-block rounded-xl bg-slate-900 px-5 py-3 text-sm text-white"
               >
                 Get Started
               </a>
@@ -122,7 +134,7 @@ export default function EstelGlobalEducationWebsite() {
       <section className="bg-slate-50">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <h2 className="text-2xl font-bold">About</h2>
-          <p className="mt-4 text-slate-600 max-w-2xl">
+          <p className="mt-4 max-w-2xl text-slate-600">
             Estel Global Education was created to give international students, especially Kenyan students, a clear and honest starting point when applying for U.S. Master’s programs. Built by Esther, who has gone through the process, this platform focuses on clarity, trust, and real guidance.
           </p>
         </div>
@@ -135,8 +147,8 @@ export default function EstelGlobalEducationWebsite() {
             Reach out on WhatsApp or email to begin your Master’s application journey.
           </p>
           <a
-            href="https://wa.me/16163495970"
-            className="mt-6 inline-block rounded-xl bg-white text-slate-900 px-6 py-3 font-semibold"
+            href="https://wa.me/16163495970?text=Hi%20Esther%2C%20I%27m%20interested%20in%20guidance%20for%20Master%E2%80%99s%20admission%20in%20the%20U.S."
+            className="mt-6 inline-block rounded-xl bg-white px-6 py-3 font-semibold text-slate-900"
           >
             Chat on WhatsApp
           </a>
