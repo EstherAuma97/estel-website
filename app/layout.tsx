@@ -13,12 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://estel-website-five.vercel.app"),
   title: "Estel Global Consulting",
   description: "Study abroad made simple. Fast. Easy. Affordable.",
   openGraph: {
     title: "Estel Global Consulting",
     description: "Study abroad made simple. Fast. Easy. Affordable.",
-    images: ["/og-image.png"],
+    url: "https://estel-website-five.vercel.app",
+    siteName: "Estel Global Consulting",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Estel Global Consulting",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
 };
 
