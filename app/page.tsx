@@ -33,7 +33,9 @@ export default function EstelWebsite() {
   useEffect(() => {
     if (!statsRef.current) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setStatsVisible(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) setStatsVisible(true);
+      },
       { threshold: 0.3 }
     );
     observer.observe(statsRef.current);
@@ -53,22 +55,26 @@ export default function EstelWebsite() {
   const needs = [
     {
       title: "Choosing the right schools",
-      note: "We help you identify programs that fit your goals, budget, and long term direction so your application strategy starts from the right foundation.",
+      note:
+        "We help you identify programs that fit your goals, budget, and long term direction so your application strategy starts from the right foundation.",
       icon: "🎓",
     },
     {
       title: "Understanding the application process",
-      note: "We break down each stage so you know what schools typically ask for and how to stay organized from inquiry to submission.",
+      note:
+        "We break down each stage so you know what schools typically ask for and how to stay organized from inquiry to submission.",
       icon: "📋",
     },
     {
       title: "Preparing strong documents",
-      note: "We guide you in shaping personal statements and supporting materials so your application feels clear, focused, and professional.",
+      note:
+        "We guide you in shaping personal statements and supporting materials so your application feels clear, focused, and professional.",
       icon: "✍️",
     },
     {
       title: "Getting ready for the visa interview",
-      note: "We help you prepare with practical guidance, common question preparation, and a clearer understanding of what to expect.",
+      note:
+        "We help you prepare with practical guidance, common question preparation, and a clearer understanding of what to expect.",
       icon: "🛂",
     },
   ];
@@ -78,6 +84,7 @@ export default function EstelWebsite() {
       title: "Starter Guidance",
       price: "$149",
       tagline: "Perfect to get started",
+      paymentLink: "https://buy.stripe.com/8x24gy6bd1qg3Hx2Tr4Vy01",
       items: [
         "School selection support",
         "Application checklist and timeline",
@@ -90,6 +97,7 @@ export default function EstelWebsite() {
       price: "$349",
       tagline: "Most students choose this",
       featured: true,
+      paymentLink: "https://buy.stripe.com/fZu5kC5796KA91R8dL4Vy02",
       items: [
         "Everything in Starter Guidance",
         "School shortlist based on budget and goals",
@@ -101,6 +109,7 @@ export default function EstelWebsite() {
       title: "Full Support",
       price: "$799",
       tagline: "Complete end-to-end guidance",
+      paymentLink: "https://buy.stripe.com/28E8wOczB8SI5PF8dL4Vy03",
       items: [
         "Everything in Application Support",
         "One on one planning sessions",
@@ -125,17 +134,20 @@ export default function EstelWebsite() {
 
   const testimonials = [
     {
-      quote: "Estel helped me understand the whole application process from scratch. I felt so much more confident going into my visa interview.",
+      quote:
+        "Estel helped me understand the whole application process from scratch. I felt so much more confident going into my visa interview.",
       name: "Sylvia O.",
       origin: "Kenya to Indiana University",
     },
     {
-      quote: "The school selection guidance alone saved me so much time and confusion. I knew exactly where to apply and why.",
+      quote:
+        "The school selection guidance alone saved me so much time and confusion. I knew exactly where to apply and why.",
       name: "Taylor M.",
       origin: "Kenya to Missouri State",
     },
     {
-      quote: "I was overwhelmed before reaching out. The structured process made everything feel manageable and clear.",
+      quote:
+        "I was overwhelmed before reaching out. The structured process made everything feel manageable and clear.",
       name: "Florence S.",
       origin: "Kenya to Arizona State",
     },
@@ -167,22 +179,26 @@ export default function EstelWebsite() {
   const whyUsaPoints = [
     {
       title: "Wide range of programs",
-      text: "The United States offers a broad selection of Master's programs across fields, allowing students to choose options that align closely with their academic and career goals.",
+      text:
+        "The United States offers a broad selection of Master's programs across fields, allowing students to choose options that align closely with their academic and career goals.",
       icon: "🏛️",
     },
     {
       title: "Research and professional opportunities",
-      text: "Many programs provide strong research exposure, practical learning, and industry connections that can shape long term career growth.",
+      text:
+        "Many programs provide strong research exposure, practical learning, and industry connections that can shape long term career growth.",
       icon: "🔬",
     },
     {
       title: "Flexible pathways",
-      text: "Students often have more room to tailor their studies, build specialized skills, and explore career directions through electives, internships, and campus resources.",
+      text:
+        "Students often have more room to tailor their studies, build specialized skills, and explore career directions through electives, internships, and campus resources.",
       icon: "🗺️",
     },
     {
       title: "Strong outcomes for high demand fields",
-      text: "For students in STEM and other high demand professional programs, the U.S. can offer valuable opportunities for extended work experience after graduation.",
+      text:
+        "For students in STEM and other high demand professional programs, the U.S. can offer valuable opportunities for extended work experience after graduation.",
       icon: "📈",
     },
   ];
@@ -359,7 +375,6 @@ export default function EstelWebsite() {
         }
       `}</style>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="mobile-menu">
           <button
@@ -389,7 +404,6 @@ export default function EstelWebsite() {
         </div>
       )}
 
-      {/* Header */}
       <header
         style={{
           position: "sticky",
@@ -449,12 +463,10 @@ export default function EstelWebsite() {
         </div>
       </header>
 
-      {/* Hero */}
       <section id="home" style={{ background: "linear-gradient(180deg, #f8fafc 0%, #ffffff 60%)", borderBottom: "1px solid #f1f5f9" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 24px 80px" }}>
           <div style={{ display: "grid", gap: 48, alignItems: "start" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 48, alignItems: "center" }}
-                 className="hero-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 48, alignItems: "center" }} className="hero-grid">
               <style>{`@media(max-width:768px){.hero-grid{grid-template-columns:1fr!important}}`}</style>
               <div className="animate-fade-up">
                 <div className="hero-badge">
@@ -533,7 +545,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* Stats Bar */}
       <div ref={statsRef} style={{ background: "#0f172a", padding: "40px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 24 }}>
           {stats.map((stat, i) => (
@@ -549,7 +560,6 @@ export default function EstelWebsite() {
         </div>
       </div>
 
-      {/* Why USA */}
       <section id="why-usa" style={{ background: "#0f172a", color: "white", padding: "80px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ maxWidth: 640, marginBottom: 48 }}>
@@ -578,7 +588,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* Why Estel */}
       <section style={{ padding: "80px 24px", background: "#f8fafc" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "stretch" }}>
@@ -609,7 +618,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* Services */}
       <section id="services" style={{ padding: "80px 24px", background: "white" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ maxWidth: 600, marginBottom: 48 }}>
@@ -662,7 +670,9 @@ export default function EstelWebsite() {
                 </ul>
 
                 <a
-                  href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry"
+                  href={service.paymentLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: "block",
                     textAlign: "center",
@@ -676,7 +686,7 @@ export default function EstelWebsite() {
                     transition: "all 0.2s ease",
                   }}
                 >
-                  Get Started
+                  Start Now
                 </a>
               </div>
             ))}
@@ -691,7 +701,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* How It Works + About */}
       <section id="how-it-works" style={{ padding: "80px 24px", background: "#f8fafc" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 48, alignItems: "start" }}>
@@ -748,7 +757,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section style={{ padding: "80px 24px", background: "white" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
@@ -780,7 +788,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* Trust + Disclaimer */}
       <section style={{ padding: "60px 24px", background: "#f8fafc" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
@@ -819,7 +826,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section id="faq" style={{ padding: "80px 24px", background: "white" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <span className="section-label">FAQ</span>
@@ -856,7 +862,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* CTA / Contact */}
       <section id="contact" style={{ background: "#0f172a", padding: "80px 24px" }}>
         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
           <span style={{ display: "inline-block", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 100, padding: "6px 16px", fontSize: 12, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", marginBottom: 24 }}>
@@ -884,7 +889,6 @@ export default function EstelWebsite() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer style={{ background: "#080f1c", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "32px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
           <div>
