@@ -131,13 +131,13 @@ export default function EstelWebsite() {
     },
     {
       quote: "The school selection guidance alone saved me so much time and confusion. I knew exactly where to apply and why.",
-      name: "Easter M.",
+      name: "Taylor M.",
       origin: "Kenya to Missouri State",
     },
     {
       quote: "I was overwhelmed before reaching out. The structured process made everything feel manageable and clear.",
       name: "Florence S.",
-      origin: "Oregon to Arizona State",
+      origin: "Kenya to Arizona State",
     },
   ];
 
