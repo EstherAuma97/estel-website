@@ -118,7 +118,6 @@ export default function EstelWebsite() {
   ];
 
   const stats = [
-    { value: "100+", label: "Students Guided" },
     { value: "3", label: "Service Tiers" },
     { value: "24h", label: "Response Time" },
     { value: "100%", label: "Honest Guidance" },
@@ -127,18 +126,18 @@ export default function EstelWebsite() {
   const testimonials = [
     {
       quote: "Estel helped me understand the whole application process from scratch. I felt so much more confident going into my visa interview.",
-      name: "Amara K.",
-      origin: "Nigeria → Michigan State",
+      name: "Sylvia O.",
+      origin: "Kenya to Indiana University",
     },
     {
       quote: "The school selection guidance alone saved me so much time and confusion. I knew exactly where to apply and why.",
-      name: "David M.",
-      origin: "Kenya → University of Florida",
+      name: "Easter M.",
+      origin: "Kenya to Missouri State",
     },
     {
       quote: "I was overwhelmed before reaching out. The structured process made everything feel manageable and clear.",
-      name: "Priya S.",
-      origin: "India → Arizona State",
+      name: "Florence S.",
+      origin: "Oregon to Arizona State",
     },
   ];
 
@@ -161,7 +160,7 @@ export default function EstelWebsite() {
     },
     {
       q: "Can we contact you before choosing a package?",
-      a: "Yes. You can reach out first through the consultation or email buttons, ask questions, and decide what level of support fits your needs.",
+      a: "Yes. You can reach out first through email, ask questions, and decide what level of support fits your needs.",
     },
   ];
 
@@ -193,8 +192,6 @@ export default function EstelWebsite() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { box-sizing: border-box; }
-        .font-display { font-family: 'Playfair Display', Georgia, serif; }
-        .font-body { font-family: 'DM Sans', system-ui, sans-serif; }
         html { scroll-behavior: smooth; font-family: 'DM Sans', system-ui, sans-serif; }
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(24px); }
@@ -203,15 +200,8 @@ export default function EstelWebsite() {
         @keyframes fadeIn {
           from { opacity: 0; } to { opacity: 1; }
         }
-        @keyframes shimmer {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
         .animate-fade-up { animation: fadeUp 0.7s ease both; }
-        .animate-fade-up-1 { animation: fadeUp 0.7s 0.1s ease both; }
         .animate-fade-up-2 { animation: fadeUp 0.7s 0.2s ease both; }
-        .animate-fade-up-3 { animation: fadeUp 0.7s 0.3s ease both; }
-        .animate-fade-up-4 { animation: fadeUp 0.7s 0.4s ease both; }
         .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.09); }
         .btn-primary {
@@ -246,12 +236,6 @@ export default function EstelWebsite() {
           text-decoration: none;
         }
         .btn-secondary:hover { background: #f8fafc; border-color: #94a3b8; }
-        .gradient-text {
-          background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #0f172a 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
         .hero-badge {
           display: inline-flex;
           align-items: center;
@@ -272,22 +256,6 @@ export default function EstelWebsite() {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.6; transform: scale(0.85); }
         }
-        .stat-card {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 20px;
-          padding: 24px;
-          text-align: center;
-        }
-        .stat-value {
-          font-family: 'Playfair Display', serif;
-          font-size: 36px;
-          font-weight: 700;
-          color: #0f172a;
-          line-height: 1;
-          margin-bottom: 6px;
-        }
-        .stat-label { font-size: 13px; color: #64748b; font-weight: 500; }
         .testimonial-card {
           background: white;
           border: 1px solid #e2e8f0;
@@ -318,14 +286,6 @@ export default function EstelWebsite() {
           font-size: 14px;
           flex-shrink: 0;
         }
-        .step-line {
-          width: 2px;
-          background: #e2e8f0;
-          flex: 1;
-          min-height: 24px;
-          margin: 4px auto;
-        }
-        .nav-link-active { color: #0f172a !important; font-weight: 600; }
         .mobile-menu {
           position: fixed;
           inset: 0;
@@ -363,12 +323,6 @@ export default function EstelWebsite() {
           color: #475569;
         }
         .check-icon { color: #22c55e; font-weight: 700; }
-        .wavy-underline {
-          text-decoration: underline;
-          text-decoration-style: wavy;
-          text-decoration-color: #cbd5e1;
-          text-underline-offset: 5px;
-        }
         .section-label {
           display: inline-flex;
           align-items: center;
@@ -425,7 +379,7 @@ export default function EstelWebsite() {
             </a>
           ))}
           <a
-            href="https://wa.me/16163495970?text=Hi%20Estel%20Global%20Education%2C%20I%27m%20interested%20in%20guidance%20for%20studying%20in%20the%20U.S."
+            href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry"
             onClick={() => setMobileMenuOpen(false)}
             className="btn-primary"
             style={{ marginTop: 16, justifyContent: "center" }}
@@ -479,10 +433,10 @@ export default function EstelWebsite() {
 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <a
-              href="https://wa.me/16163495970?text=Hi%20Estel%20Global%20Education%2C%20I%27m%20interested%20in%20guidance%20for%20studying%20in%20the%20U.S."
+              href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry"
               className="btn-primary hide-mobile"
             >
-              Book a Consultation →
+              Book a Consultation
             </a>
             <button
               className="show-mobile"
@@ -498,9 +452,7 @@ export default function EstelWebsite() {
       {/* Hero */}
       <section id="home" style={{ background: "linear-gradient(180deg, #f8fafc 0%, #ffffff 60%)", borderBottom: "1px solid #f1f5f9" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 24px 80px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }} className="hide-mobile" />
           <div style={{ display: "grid", gap: 48, alignItems: "start" }}>
-            {/* Two col on desktop */}
             <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 48, alignItems: "center" }}
                  className="hero-grid">
               <style>{`@media(max-width:768px){.hero-grid{grid-template-columns:1fr!important}}`}</style>
@@ -519,15 +471,15 @@ export default function EstelWebsite() {
                 </h1>
 
                 <p style={{ fontSize: 17, lineHeight: 1.75, color: "#475569", margin: "0 0 32px", maxWidth: 480 }}>
-                  Step-by-step guidance for international students — from choosing the right university to walking into your visa interview with confidence.
+                  Step-by-step guidance for international students, from choosing the right university to walking into your visa interview with confidence.
                 </p>
 
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 28 }}>
                   <a
-                    href="https://wa.me/16163495970?text=Hi%20Estel%20Global%20Education%2C%20I%27m%20interested%20in%20guidance%20for%20studying%20in%20the%20U.S."
+                    href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry"
                     className="btn-primary"
                   >
-                    Book a Free Consultation →
+                    Book a Free Consultation
                   </a>
                   <a href="#services" className="btn-secondary">
                     See Pricing
@@ -587,7 +539,7 @@ export default function EstelWebsite() {
           {stats.map((stat, i) => (
             <div key={stat.label} className="animate-fade-up" style={{ animationDelay: `${i * 0.1}s`, textAlign: "center" }}>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "white", lineHeight: 1 }}>
-                {statsVisible ? stat.value : "—"}
+                {statsVisible ? stat.value : "-"}
               </div>
               <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 6, fontWeight: 500, letterSpacing: "0.05em" }}>
                 {stat.label}
@@ -606,12 +558,12 @@ export default function EstelWebsite() {
               A strong option for students who think long term.
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: "#94a3b8" }}>
-              The U.S. offers some of the most flexible, opportunity-driven graduate education in the world — but getting there requires careful planning. We help you do that well.
+              The U.S. offers some of the most flexible, opportunity-driven graduate education in the world. Getting there requires careful planning and we help you do that well.
             </p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
-            {whyUsaPoints.map((point, i) => (
+            {whyUsaPoints.map((point) => (
               <div
                 key={point.title}
                 className="card-hover"
@@ -636,7 +588,7 @@ export default function EstelWebsite() {
                 Clarity in a confusing process.
               </h2>
               <p style={{ fontSize: 14, lineHeight: 1.75, color: "#94a3b8", margin: 0 }}>
-                Most students spend months sifting through conflicting advice online. We cut through that with a clear, experienced-based process.
+                Most students spend months sifting through conflicting advice online. We cut through that with a clear, experience-based process.
               </p>
             </div>
             <div style={{ background: "white", border: "1px solid #e2e8f0", borderRadius: 28, padding: 28 }} className="card-hover">
@@ -666,7 +618,7 @@ export default function EstelWebsite() {
               Choose the level of support you need.
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: "#64748b", margin: 0 }}>
-              Start simple or go all-in — each tier builds on the last.
+              Start simple or go all-in. Each tier builds on the last.
             </p>
           </div>
 
@@ -692,7 +644,7 @@ export default function EstelWebsite() {
                   </div>
                 )}
                 <div style={{ marginBottom: 24 }}>
-                  <p style={{ fontSize: 13, fontWeight: 500, color: service.featured ? "#94a3b8" : "#94a3b8", margin: "0 0 6px" }}>{service.tagline}</p>
+                  <p style={{ fontSize: 13, fontWeight: 500, color: "#94a3b8", margin: "0 0 6px" }}>{service.tagline}</p>
                   <h3 style={{ fontSize: 22, fontWeight: 700, fontFamily: "'Playfair Display', serif", color: service.featured ? "white" : "#0f172a", margin: "0 0 4px" }}>{service.title}</h3>
                   <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
                     <span style={{ fontSize: 38, fontWeight: 700, fontFamily: "'Playfair Display', serif", color: service.featured ? "white" : "#0f172a" }}>{service.price}</span>
@@ -710,7 +662,7 @@ export default function EstelWebsite() {
                 </ul>
 
                 <a
-                  href="https://wa.me/16163495970?text=Hi%20Estel%20Global%20Education%2C%20I%27m%20interested%20in%20your%20services%20for%20studying%20in%20the%20U.S."
+                  href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry"
                   style={{
                     display: "block",
                     textAlign: "center",
@@ -724,14 +676,17 @@ export default function EstelWebsite() {
                     transition: "all 0.2s ease",
                   }}
                 >
-                  Get Started →
+                  Get Started
                 </a>
               </div>
             ))}
           </div>
 
           <p style={{ textAlign: "center", fontSize: 13, color: "#94a3b8", marginTop: 24 }}>
-            Not sure which package fits? <a href="https://wa.me/16163495970" style={{ color: "#0f172a", fontWeight: 600 }}>Message us first — no commitment needed.</a>
+            Not sure which package fits?{" "}
+            <a href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry" style={{ color: "#0f172a", fontWeight: 600 }}>
+              Email us first. No commitment needed.
+            </a>
           </p>
         </div>
       </section>
@@ -751,7 +706,9 @@ export default function EstelWebsite() {
                   <div key={step.title} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                       <div className="step-number">{index + 1}</div>
-                      {index < steps.length - 1 && <div className="step-line" style={{ height: 40 }} />}
+                      {index < steps.length - 1 && (
+                        <div style={{ width: 2, height: 40, background: "#e2e8f0", margin: "4px auto" }} />
+                      )}
                     </div>
                     <div style={{ paddingBottom: index < steps.length - 1 ? 32 : 0, paddingTop: 8 }}>
                       <p style={{ fontSize: 15, fontWeight: 600, color: "#0f172a", margin: "0 0 4px" }}>{step.title}</p>
@@ -769,24 +726,23 @@ export default function EstelWebsite() {
               </h3>
 
               <div className="about-quote">
-                "I saw how many capable students struggle — not because they lacked potential, but because they lacked structure, clarity, and the right support."
+                "I saw how many capable students struggle, not because they lacked potential, but because they lacked structure, clarity, and the right support."
               </div>
 
               <p style={{ fontSize: 14, lineHeight: 1.8, color: "#64748b", marginBottom: 14 }}>
-                Estel Global Education was founded by Esther, an international student from Kenya who personally navigated the U.S. education journey. She built this company to give other students what she wished she'd had.
+                Estel Global Education was founded by Esther, an international student from Kenya who personally navigated the U.S. education journey. She built this company to give other students what she wished she had.
               </p>
               <p style={{ fontSize: 14, lineHeight: 1.8, color: "#64748b", marginBottom: 24 }}>
-                Today, we turn that lived experience into a thoughtful service — helping students move forward with stronger planning, better applications, and more confidence at every step.
+                Today, we turn that lived experience into a thoughtful service, helping students move forward with stronger planning, better applications, and more confidence at every step.
               </p>
 
-              <div style={{ display: "flex", gap: 12 }}>
-                <a href="https://wa.me/16163495970" className="btn-primary" style={{ flex: 1, justifyContent: "center" }}>
-                  WhatsApp Us
-                </a>
-                <a href="mailto:consultingestel@gmail.com" className="btn-secondary" style={{ flex: 1, justifyContent: "center" }}>
-                  Send Email
-                </a>
-              </div>
+              <a
+                href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry"
+                className="btn-primary"
+                style={{ width: "100%", justifyContent: "center" }}
+              >
+                Send Us an Email
+              </a>
             </div>
           </div>
         </div>
@@ -838,7 +794,7 @@ export default function EstelWebsite() {
                   "Guidance shaped by real international student experience",
                   "A structured process instead of scattered advice",
                   "Support for applications, documents, and interviews",
-                  "Private, direct contact via WhatsApp and email",
+                  "Private, direct contact via email",
                 ].map((point) => (
                   <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                     <span style={{ color: "#22c55e", fontWeight: 700, flexShrink: 0, marginTop: 2 }}>✓</span>
@@ -856,7 +812,7 @@ export default function EstelWebsite() {
                 Guidance with clear boundaries.
               </h3>
               <p style={{ fontSize: 14, lineHeight: 1.8, color: "#64748b", margin: 0 }}>
-                We provide educational guidance based on experience and preparation support for students. We do not offer legal immigration advice or representation. Admission and visa decisions are made solely by schools and government authorities — we never guarantee outcomes.
+                We provide educational guidance based on experience and preparation support for students. We do not offer legal immigration advice or representation. Admission and visa decisions are made solely by schools and government authorities. We never guarantee outcomes.
               </p>
             </div>
           </div>
@@ -871,7 +827,10 @@ export default function EstelWebsite() {
             Common questions from students.
           </h2>
           <p style={{ fontSize: 15, color: "#64748b", marginBottom: 40 }}>
-            Don't see your question? <a href="https://wa.me/16163495970" style={{ color: "#0f172a", fontWeight: 600 }}>Message us directly.</a>
+            Don't see your question?{" "}
+            <a href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry" style={{ color: "#0f172a", fontWeight: 600 }}>
+              Email us directly.
+            </a>
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {faqs.map((faq, index) => {
@@ -907,26 +866,20 @@ export default function EstelWebsite() {
             Ready to move forward?
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: "#94a3b8", margin: "0 0 36px" }}>
-            Reach out privately through WhatsApp or email. Ask questions before committing — no pressure, no commitment required.
+            Reach out by email. Ask questions before committing. No pressure, no commitment required.
           </p>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginBottom: 32 }}>
-            <a
-              href="https://wa.me/16163495970?text=Hi%20Estel%20Global%20Education%2C%20I%27m%20interested%20in%20guidance%20for%20studying%20in%20the%20U.S."
-              style={{ background: "#22c55e", color: "white", borderRadius: 14, padding: "14px 28px", fontWeight: 600, fontSize: 15, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, transition: "all 0.2s" }}
-            >
-              💬 Open WhatsApp
-            </a>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 32 }}>
             <a
               href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry"
-              style={{ background: "transparent", color: "white", border: "1.5px solid rgba(255,255,255,0.25)", borderRadius: 14, padding: "14px 28px", fontWeight: 600, fontSize: 15, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}
+              style={{ background: "white", color: "#0f172a", borderRadius: 14, padding: "14px 28px", fontWeight: 600, fontSize: 15, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}
             >
               ✉️ Send an Email
             </a>
           </div>
 
           <p style={{ fontSize: 13, color: "#475569" }}>
-            consultingestel@gmail.com · WhatsApp: +1 (616) 349-5970
+            consultingestel@gmail.com
           </p>
         </div>
       </section>
@@ -940,7 +893,7 @@ export default function EstelWebsite() {
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} style={{ fontSize: 13, color: "#475569", textDecoration: "none", transition: "color 0.15s" }}>
+              <a key={item.label} href={item.href} style={{ fontSize: 13, color: "#475569", textDecoration: "none" }}>
                 {item.label}
               </a>
             ))}
