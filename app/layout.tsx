@@ -14,7 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Estel Global Consulting",
-  description: "Study abroad made simple. Fast, easy, and affordable.",
+  description: "Study abroad made simple. Fast. Easy. Affordable.",
+  openGraph: {
+    title: "Estel Global Consulting",
+    description: "Study abroad made simple. Fast. Easy. Affordable.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
