@@ -577,7 +577,7 @@ export default function EstelWebsite() {
           </nav>
 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary hide-mobile">
+            <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary hide-mobile">
               Book a Consultation
             </a>
             <button className="show-mobile" onClick={() => setMobileMenuOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 22, color: "#0f172a", padding: 4 }}>
