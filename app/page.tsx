@@ -554,7 +554,7 @@ export default function EstelWebsite() {
               {item.label}
             </a>
           ))}
-          <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="btn-primary" style={{ marginTop: 20, justifyContent: "center" }}>
+          <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="btn-primary" style={{ marginTop: 20, justifyContent: "center" }}>
             Book a Consultation
           </a>
         </div>
@@ -618,7 +618,7 @@ export default function EstelWebsite() {
               </div>
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
-                <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
                   Book a Consultation
                 </a>
                 <a href="#services" className="btn-secondary">See Pricing</a>
@@ -784,7 +784,7 @@ export default function EstelWebsite() {
 
           <p style={{ textAlign: "center", fontSize: 13, color: "#94a3b8", marginTop: 28 }}>
             Not sure which package fits?{" "}
-            <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{ color: "#0f172a", fontWeight: 600 }}>
+            <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" style={{ color: "#0f172a", fontWeight: 600 }}>
               Book a consultation first.
             </a>
             {" "}Or email us at{" "}
@@ -816,7 +816,7 @@ export default function EstelWebsite() {
                   </div>
                 ))}
               </div>
-              <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: 36 }}>
+              <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: 36 }}>
                 Book Step 1 Now
               </a>
             </div>
@@ -978,7 +978,7 @@ export default function EstelWebsite() {
             {" "}and we will get back to you within 24 hours.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginBottom: 36 }}>
-            <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 15, padding: "14px 28px" }}>
+            <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 15, padding: "14px 28px" }}>
               Book a Consultation
             </a>
             <a href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry" className="btn-outline-white">
