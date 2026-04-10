@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 
 const CALENDAR_LINK = "https://calendar.app.google/kw2WnqDiHVXEgxQ46";
+const CONSULTATION_PAYMENT_LINK = "https://buy.stripe.com/bJecN48jld8Y3HxfGd4Vy04";
 
 export default function EstelWebsite() {
   const [activeNeed, setActiveNeed] = useState<number | null>(0);
@@ -17,7 +18,7 @@ export default function EstelWebsite() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ["home", "why-usa", "services", "how-it-works", "about", "faq", "contact"];
+      const sections = ["home", "why-usa", "services", "how-it-works", "about", "mission", "faq", "contact"];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
@@ -36,16 +37,13 @@ export default function EstelWebsite() {
   useEffect(() => {
     if (!statsRef.current) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setStatsVisible(true);
-      },
+      ([entry]) => { if (entry.isIntersecting) setStatsVisible(true); },
       { threshold: 0.3 }
     );
     observer.observe(statsRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Lock body scroll when terms modal is open
   useEffect(() => {
     document.body.style.overflow = termsOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -57,6 +55,7 @@ export default function EstelWebsite() {
     { label: "Services", href: "#services" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "About", href: "#about" },
+    { label: "Mission", href: "#mission" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ];
@@ -130,6 +129,7 @@ export default function EstelWebsite() {
   ];
 
   const stats = [
+    { value: "2", label: "Program Levels" },
     { value: "3", label: "Service Tiers" },
     { value: "24h", label: "Response Time" },
     { value: "100%", label: "Honest Guidance" },
@@ -155,6 +155,14 @@ export default function EstelWebsite() {
 
   const faqs = [
     {
+      q: "Do you work with both undergraduate and graduate students?",
+      a: "Yes. We support students applying to both undergraduate and graduate programs in the United States. Whether you are applying for your first degree or pursuing a Master's, we tailor our guidance to your level and goals.",
+    },
+    {
+      q: "What does the consultation cover?",
+      a: "The consultation is a one-on-one session where we review your background, clarify your goals, and map out a direction for your application. After the session, you will have a clearer picture of which service tier fits your needs.",
+    },
+    {
       q: "Do you guarantee admission or visa approval?",
       a: "No. We provide guidance and preparation support based on experience and best practices. Final decisions are always made by schools and government authorities.",
     },
@@ -163,23 +171,19 @@ export default function EstelWebsite() {
       a: "No. We provide educational guidance based on experience. We do not offer legal immigration advice or representation.",
     },
     {
-      q: "Who is this for?",
-      a: "Our service is designed for international students who want clear and trustworthy support when applying to study in the United States, especially at the Master's level.",
-    },
-    {
       q: "What can you help us with?",
-      a: "We help with school selection, application planning, statement of purpose guidance, document preparation, and visa interview readiness.",
+      a: "We help with school selection, application planning, statement of purpose guidance, document preparation, and visa interview readiness, for both undergraduate and graduate applicants.",
     },
     {
-      q: "Can we contact you before choosing a package?",
-      a: "Yes. You can book a free consultation directly on the calendar or reach out by email first. No commitment needed.",
+      q: "Can we reach out before booking?",
+      a: "Yes. If you have questions before committing to a consultation, email us at consultingestel@gmail.com and we will be happy to help.",
     },
   ];
 
   const whyUsaPoints = [
     {
       title: "Wide range of programs",
-      text: "The United States offers a broad selection of Master's programs across fields, allowing students to choose options that align closely with their academic and career goals.",
+      text: "The United States offers a broad selection of undergraduate and graduate programs across fields, allowing students to choose options that align closely with their academic and career goals.",
     },
     {
       title: "Research and professional opportunities",
@@ -195,10 +199,28 @@ export default function EstelWebsite() {
     },
   ];
 
+  const missionValues = [
+    {
+      label: "Our Mission",
+      heading: "Make the process simple and easy.",
+      body: "The path to studying in the U.S. should not feel impossible to navigate. Our mission is to simplify every step so students can focus on what matters most: building a strong application and moving forward with confidence.",
+    },
+    {
+      label: "Our Vision",
+      heading: "Help students. Create real impact.",
+      body: "We envision a world where every capable international student has access to honest, structured guidance. Not just advice, but real support that changes outcomes and opens doors that might otherwise stay closed.",
+    },
+    {
+      label: "Our Commitment",
+      heading: "Serve every client to satisfaction.",
+      body: "We are committed to showing up fully for every student we work with. That means being honest, being thorough, and staying with you until the process is done. Your success is the measure of ours.",
+    },
+  ];
+
   const termsSections = [
     {
       title: "1. Nature of Services",
-      body: "Estel Global Education provides educational guidance and preparation support for international students applying to graduate programs in the United States. Our services include school selection advice, application planning, document guidance, and visa interview preparation. We do not provide legal immigration advice, legal representation, or any services regulated by law.",
+      body: "Estel Global Education provides educational guidance and preparation support for international students applying to undergraduate and graduate programs in the United States. Our services include school selection advice, application planning, document guidance, and visa interview preparation. We do not provide legal immigration advice, legal representation, or any services regulated by law.",
     },
     {
       title: "2. No Guarantee of Outcomes",
@@ -206,7 +228,7 @@ export default function EstelWebsite() {
     },
     {
       title: "3. Payments and Refunds",
-      body: "All service fees are due at the time of purchase and are non-refundable once work has commenced. If you have questions about a package before purchasing, please contact us at consultingestel@gmail.com. In the event that a service cannot be delivered due to our error, we will work with you to find a fair resolution.",
+      body: "All service fees, including the consultation fee, are due at the time of purchase and are non-refundable once the service has commenced. If you have questions about a package before purchasing, please contact us at consultingestel@gmail.com. In the event that a service cannot be delivered due to our error, we will work with you to find a fair resolution.",
     },
     {
       title: "4. Client Responsibilities",
@@ -328,6 +350,18 @@ export default function EstelWebsite() {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.6; transform: scale(0.85); }
         }
+        .consultation-card {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 16px 20px;
+          margin-top: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
         .testimonial-card {
           background: white;
           border: 1px solid #e2e8f0;
@@ -366,6 +400,7 @@ export default function EstelWebsite() {
           flex-direction: column;
           gap: 4px;
           animation: fadeIn 0.2s ease;
+          overflow-y: auto;
         }
         .accordion-btn {
           width: 100%;
@@ -420,6 +455,12 @@ export default function EstelWebsite() {
           font-size: 15px;
           line-height: 1.7;
         }
+        .mission-card {
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 24px;
+          padding: 32px;
+        }
         .modal-overlay {
           position: fixed;
           inset: 0;
@@ -447,17 +488,16 @@ export default function EstelWebsite() {
           .modal-box { border-radius: 24px; }
         }
         .terms-section { margin-bottom: 24px; }
-        .terms-section h3 {
-          font-size: 14px;
-          font-weight: 700;
-          color: #0f172a;
-          margin: 0 0 8px;
-        }
-        .terms-section p {
-          font-size: 14px;
-          line-height: 1.8;
-          color: #475569;
-          margin: 0;
+        .terms-section h3 { font-size: 14px; font-weight: 700; color: #0f172a; margin: 0 0 8px; }
+        .terms-section p { font-size: 14px; line-height: 1.8; color: #475569; margin: 0; }
+        .level-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          border-radius: 100px;
+          padding: 5px 12px;
+          font-size: 12px;
+          font-weight: 600;
         }
         @media (max-width: 768px) {
           .hide-mobile { display: none !important; }
@@ -477,10 +517,7 @@ export default function EstelWebsite() {
                 <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 6px" }}>Legal</p>
                 <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: "#0f172a", margin: 0 }}>Terms and Conditions</h2>
               </div>
-              <button
-                onClick={() => setTermsOpen(false)}
-                style={{ background: "#f1f5f9", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#64748b", flexShrink: 0 }}
-              >
+              <button onClick={() => setTermsOpen(false)} style={{ background: "#f1f5f9", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#64748b", flexShrink: 0 }}>
                 ✕
               </button>
             </div>
@@ -498,11 +535,7 @@ export default function EstelWebsite() {
                 Questions about these terms? Email us at{" "}
                 <a href="mailto:consultingestel@gmail.com" style={{ color: "#0f172a", fontWeight: 600 }}>consultingestel@gmail.com</a>
               </p>
-              <button
-                onClick={() => setTermsOpen(false)}
-                className="btn-primary"
-                style={{ width: "100%", justifyContent: "center" }}
-              >
+              <button onClick={() => setTermsOpen(false)} className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
                 Close
               </button>
             </div>
@@ -513,43 +546,22 @@ export default function EstelWebsite() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="mobile-menu">
-          <button
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ position: "absolute", top: 20, right: 24, fontSize: 24, background: "none", border: "none", cursor: "pointer", color: "#0f172a" }}
-          >
+          <button onClick={() => setMobileMenuOpen(false)} style={{ position: "absolute", top: 20, right: 24, fontSize: 24, background: "none", border: "none", cursor: "pointer", color: "#0f172a" }}>
             ✕
           </button>
           {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ fontSize: 18, fontWeight: 500, color: "#0f172a", padding: "13px 0", textDecoration: "none", borderBottom: "1px solid #f1f5f9" }}
-            >
+            <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} style={{ fontSize: 18, fontWeight: 500, color: "#0f172a", padding: "13px 0", textDecoration: "none", borderBottom: "1px solid #f1f5f9" }}>
               {item.label}
             </a>
           ))}
-          <a
-            href={CALENDAR_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="btn-primary"
-            style={{ marginTop: 20, justifyContent: "center" }}
-          >
+          <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="btn-primary" style={{ marginTop: 20, justifyContent: "center" }}>
             Book a Consultation
           </a>
         </div>
       )}
 
       {/* Header */}
-      <header style={{
-        position: "sticky", top: 0, zIndex: 50,
-        background: scrolled ? "rgba(255,255,255,0.97)" : "white",
-        backdropFilter: "blur(12px)",
-        borderBottom: scrolled ? "1px solid #e2e8f0" : "1px solid transparent",
-        transition: "all 0.3s ease",
-      }}>
+      <header style={{ position: "sticky", top: 0, zIndex: 50, background: scrolled ? "rgba(255,255,255,0.97)" : "white", backdropFilter: "blur(12px)", borderBottom: scrolled ? "1px solid #e2e8f0" : "1px solid transparent", transition: "all 0.3s ease" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <a href="#home" style={{ textDecoration: "none", display: "flex", flexDirection: "column" }}>
             <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: "#0f172a", lineHeight: 1.1 }}>Estel Global</span>
@@ -558,19 +570,14 @@ export default function EstelWebsite() {
 
           <nav className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: 2 }}>
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} style={{
-                fontSize: 13,
-                fontWeight: activeSection === item.href.replace("#", "") ? 600 : 400,
-                color: activeSection === item.href.replace("#", "") ? "#0f172a" : "#64748b",
-                textDecoration: "none", padding: "6px 10px", borderRadius: 8, transition: "all 0.15s ease",
-              }}>
+              <a key={item.label} href={item.href} style={{ fontSize: 13, fontWeight: activeSection === item.href.replace("#", "") ? 600 : 400, color: activeSection === item.href.replace("#", "") ? "#0f172a" : "#64748b", textDecoration: "none", padding: "6px 10px", borderRadius: 8, transition: "all 0.15s ease" }}>
                 {item.label}
               </a>
             ))}
           </nav>
 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary hide-mobile">
+            <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary hide-mobile">
               Book a Consultation
             </a>
             <button className="show-mobile" onClick={() => setMobileMenuOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 22, color: "#0f172a", padding: 4 }}>
@@ -591,6 +598,7 @@ export default function EstelWebsite() {
                 <span className="dot-green" />
                 Now accepting new students
               </div>
+
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.15, color: "#0f172a", margin: "0 0 20px" }}>
                 Your path to studying in the{" "}
                 <span style={{ position: "relative", display: "inline-block" }}>
@@ -598,16 +606,37 @@ export default function EstelWebsite() {
                   <span style={{ position: "absolute", bottom: -4, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, #0f172a, #64748b)", borderRadius: 2 }} />
                 </span>
               </h1>
-              <p style={{ fontSize: 17, lineHeight: 1.8, color: "#475569", margin: "0 0 32px", maxWidth: 460 }}>
-                Step-by-step guidance for international students, from choosing the right university to walking into your visa interview with confidence.
+
+              <p style={{ fontSize: 17, lineHeight: 1.8, color: "#475569", margin: "0 0 20px", maxWidth: 460 }}>
+                Step-by-step guidance for international students at both the undergraduate and graduate level, from choosing the right university to walking into your visa interview with confidence.
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24 }}>
-                <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  Book a Free Consultation
+
+              {/* Program level badges */}
+              <div style={{ display: "flex", gap: 8, marginBottom: 28, flexWrap: "wrap" }}>
+                <span className="level-badge" style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", color: "#166534" }}>Undergraduate</span>
+                <span className="level-badge" style={{ background: "#eff6ff", border: "1px solid #bfdbfe", color: "#1e40af" }}>Graduate</span>
+              </div>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+                <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  Book a Consultation
                 </a>
                 <a href="#services" className="btn-secondary">See Pricing</a>
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+
+              {/* Consultation info note */}
+              <div className="consultation-card">
+                <div>
+                  <p style={{ fontSize: 13, fontWeight: 600, color: "#0f172a", margin: "0 0 2px" }}>Not sure where to start?</p>
+                  <p style={{ fontSize: 13, color: "#64748b", margin: 0 }}>
+                    Not sure where to start? Email us at{" "}
+                    <a href="mailto:consultingestel@gmail.com" style={{ color: "#0f172a", fontWeight: 600 }}>consultingestel@gmail.com</a>
+                    {" "}with any questions.
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 20 }}>
                 {["School selection", "Document prep", "Visa readiness", "1-on-1 support"].map((tag) => (
                   <span key={tag} className="feature-pill">
                     <span className="check-green">✓</span> {tag}
@@ -624,19 +653,12 @@ export default function EstelWebsite() {
                 {needs.map((item, index) => {
                   const isActive = activeNeed === index;
                   return (
-                    <button
-                      key={item.title}
-                      type="button"
-                      onClick={() => setActiveNeed(isActive ? null : index)}
-                      className={`accordion-btn ${isActive ? "accordion-btn-open" : ""}`}
-                    >
+                    <button key={item.title} type="button" onClick={() => setActiveNeed(isActive ? null : index)} className={`accordion-btn ${isActive ? "accordion-btn-open" : ""}`}>
                       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
                         <p style={{ fontSize: 14, fontWeight: 600, color: "#0f172a", margin: 0, lineHeight: 1.4 }}>{item.title}</p>
                         <span className={`chevron ${isActive ? "chevron-open" : ""}`} style={{ marginTop: 2, flexShrink: 0 }}>▼</span>
                       </div>
-                      {isActive && (
-                        <p style={{ fontSize: 13, lineHeight: 1.7, color: "#64748b", marginTop: 10, marginBottom: 0 }}>{item.note}</p>
-                      )}
+                      {isActive && <p style={{ fontSize: 13, lineHeight: 1.7, color: "#64748b", marginTop: 10, marginBottom: 0 }}>{item.note}</p>}
                     </button>
                   );
                 })}
@@ -648,13 +670,13 @@ export default function EstelWebsite() {
 
       {/* Stats */}
       <div ref={statsRef} style={{ background: "#0f172a", padding: "44px 24px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 24 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 24 }}>
           {stats.map((stat, i) => (
             <div key={stat.label} className="animate-fade-up" style={{ animationDelay: `${i * 0.1}s`, textAlign: "center" }}>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 42, fontWeight: 700, color: "white", lineHeight: 1 }}>
                 {statsVisible ? stat.value : "-"}
               </div>
-              <div style={{ fontSize: 12, color: "#64748b", marginTop: 8, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <div style={{ fontSize: 11, color: "#64748b", marginTop: 8, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                 {stat.label}
               </div>
             </div>
@@ -671,7 +693,7 @@ export default function EstelWebsite() {
               A strong option for students who think long term.
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.8, color: "#94a3b8", margin: 0 }}>
-              The U.S. offers some of the most flexible, opportunity-driven graduate education in the world. Getting there requires careful planning and we help you do that well.
+              The U.S. offers some of the most flexible, opportunity-driven education in the world at both the undergraduate and graduate level. Getting there requires careful planning and we help you do that well.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
@@ -695,7 +717,7 @@ export default function EstelWebsite() {
                 Clarity in a confusing process.
               </h2>
               <p style={{ fontSize: 14, lineHeight: 1.8, color: "#94a3b8", margin: 0 }}>
-                Most students spend months sifting through conflicting advice online. We cut through that with a clear, experience-based process.
+                Most students spend months sifting through conflicting advice online. We cut through that with a clear, experience-based process for both undergraduate and graduate applicants.
               </p>
             </div>
             <div style={{ background: "white", border: "1px solid #e2e8f0", borderRadius: 24, padding: 28 }} className="card-hover">
@@ -725,43 +747,18 @@ export default function EstelWebsite() {
               Choose the level of support you need.
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: "#64748b", margin: 0 }}>
-              Start simple or go all-in. Each tier builds on the last.
+              Available for both undergraduate and graduate applicants. Start simple or go all-in. Each tier builds on the last.
             </p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, alignItems: "stretch" }}>
             {services.map((service) => (
-              <div
-                key={service.title}
-                className="card-hover"
-                style={{
-                  borderRadius: 24,
-                  border: service.featured ? "2px solid #0f172a" : "1px solid #e2e8f0",
-                  background: service.featured ? "#0f172a" : "white",
-                  padding: 32,
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                {/* Badge in normal flow — no absolute positioning */}
+              <div key={service.title} className="card-hover" style={{ borderRadius: 24, border: service.featured ? "2px solid #0f172a" : "1px solid #e2e8f0", background: service.featured ? "#0f172a" : "white", padding: 32, display: "flex", flexDirection: "column" }}>
                 {service.featured && (
-                  <div style={{
-                    alignSelf: "flex-start",
-                    background: "rgba(255,255,255,0.12)",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    borderRadius: 100,
-                    padding: "4px 12px",
-                    fontSize: 11,
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase" as const,
-                    color: "rgba(255,255,255,0.85)",
-                    marginBottom: 14,
-                  }}>
+                  <div style={{ alignSelf: "flex-start", background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 100, padding: "4px 12px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.85)", marginBottom: 14 }}>
                     Most Popular
                   </div>
                 )}
-
                 <div style={{ marginBottom: 20 }}>
                   <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "#64748b", margin: "0 0 6px" }}>{service.tagline}</p>
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: service.featured ? "white" : "#0f172a", margin: "0 0 8px" }}>{service.title}</h3>
@@ -770,7 +767,6 @@ export default function EstelWebsite() {
                     <span style={{ fontSize: 13, color: "#64748b" }}>one time</span>
                   </div>
                 </div>
-
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
                   {service.items.map((item) => (
                     <li key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
@@ -779,24 +775,7 @@ export default function EstelWebsite() {
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={service.paymentLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "block",
-                    textAlign: "center",
-                    padding: "13px 20px",
-                    borderRadius: 12,
-                    fontWeight: 600,
-                    fontSize: 14,
-                    textDecoration: "none",
-                    background: service.featured ? "white" : "#0f172a",
-                    color: service.featured ? "#0f172a" : "white",
-                    transition: "opacity 0.2s ease",
-                  }}
-                >
+                <a href={service.paymentLink} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", padding: "13px 20px", borderRadius: 12, fontWeight: 600, fontSize: 14, textDecoration: "none", background: service.featured ? "white" : "#0f172a", color: service.featured ? "#0f172a" : "white", transition: "opacity 0.2s ease" }}>
                   Start Now
                 </a>
               </div>
@@ -805,9 +784,11 @@ export default function EstelWebsite() {
 
           <p style={{ textAlign: "center", fontSize: 13, color: "#94a3b8", marginTop: 28 }}>
             Not sure which package fits?{" "}
-            <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" style={{ color: "#0f172a", fontWeight: 600 }}>
-              Book a free call first. No commitment needed.
+            <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{ color: "#0f172a", fontWeight: 600 }}>
+              Book a consultation first.
             </a>
+            {" "}Or email us at{" "}
+            <a href="mailto:consultingestel@gmail.com" style={{ color: "#0f172a", fontWeight: 600 }}>consultingestel@gmail.com</a>
           </p>
         </div>
       </section>
@@ -835,7 +816,7 @@ export default function EstelWebsite() {
                   </div>
                 ))}
               </div>
-              <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: 36 }}>
+              <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ marginTop: 36 }}>
                 Book Step 1 Now
               </a>
             </div>
@@ -852,7 +833,7 @@ export default function EstelWebsite() {
                 Estel Global Education was founded by Esther, an international student from Kenya who personally navigated the U.S. education journey. She built this company to give other students what she wished she had.
               </p>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: "#64748b", marginBottom: 28 }}>
-                Today, we turn that lived experience into a thoughtful service, helping students move forward with stronger planning, better applications, and more confidence at every step.
+                Today, we support both undergraduate and graduate applicants, turning lived experience into a thoughtful service that helps students move forward with stronger planning, better applications, and more confidence at every step.
               </p>
               <a href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry" className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
                 Send Us an Email
@@ -862,8 +843,33 @@ export default function EstelWebsite() {
         </div>
       </section>
 
+      {/* Mission and Vision */}
+      <section id="mission" style={{ padding: "88px 24px", background: "white" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ maxWidth: 560, marginBottom: 52 }}>
+            <span className="section-label">Purpose</span>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 3vw, 40px)", fontWeight: 700, lineHeight: 1.2, color: "#0f172a", margin: "0 0 14px" }}>
+              Mission, Vision and Commitment.
+            </h2>
+            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#64748b", margin: 0 }}>
+              Everything we do is grounded in a clear purpose: to help international students move forward with confidence, clarity, and real support.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
+            {missionValues.map((item, i) => (
+              <div key={item.label} className="mission-card card-hover" style={{ borderTop: i === 0 ? "3px solid #0f172a" : i === 1 ? "3px solid #334155" : "3px solid #64748b" }}>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 12px" }}>{item.label}</p>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: "#0f172a", margin: "0 0 14px", lineHeight: 1.3 }}>{item.heading}</h3>
+                <p style={{ fontSize: 14, lineHeight: 1.8, color: "#64748b", margin: 0 }}>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
-      <section style={{ padding: "88px 24px", background: "white" }}>
+      <section style={{ padding: "88px 24px", background: "#f8fafc" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 52 }}>
             <span className="section-label" style={{ justifyContent: "center" }}>Student Stories</span>
@@ -894,16 +900,16 @@ export default function EstelWebsite() {
       </section>
 
       {/* Trust + Disclaimer */}
-      <section style={{ padding: "72px 24px", background: "#f8fafc" }}>
+      <section style={{ padding: "72px 24px", background: "white" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
-            <div style={{ background: "white", border: "1px solid #e2e8f0", borderRadius: 24, padding: 32 }}>
+            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: 24, padding: 32 }}>
               <span className="section-label">Why students trust us</span>
               <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: "#0f172a", margin: "0 0 20px" }}>
                 Direct, practical, honest support.
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                {["Guidance shaped by real international student experience", "A structured process instead of scattered advice", "Support for applications, documents, and interviews", "Private, direct contact via email"].map((point) => (
+                {["Guidance shaped by real international student experience", "Support for both undergraduate and graduate applicants", "A structured process instead of scattered advice", "Private, direct contact via email"].map((point) => (
                   <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                     <span style={{ color: "#22c55e", fontWeight: 700, flexShrink: 0, marginTop: 2, fontSize: 13 }}>✓</span>
                     <p style={{ fontSize: 14, color: "#475569", margin: 0, lineHeight: 1.65 }}>{point}</p>
@@ -927,7 +933,7 @@ export default function EstelWebsite() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" style={{ padding: "88px 24px", background: "white" }}>
+      <section id="faq" style={{ padding: "88px 24px", background: "#f8fafc" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <span className="section-label">FAQ</span>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 700, color: "#0f172a", margin: "0 0 8px" }}>
@@ -963,18 +969,22 @@ export default function EstelWebsite() {
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 4vw, 46px)", fontWeight: 700, color: "white", margin: "0 0 16px", lineHeight: 1.2 }}>
             Ready to move forward?
           </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#64748b", margin: "0 0 40px" }}>
-            Book a free consultation directly on the calendar, or send an email if you have questions first.
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#64748b", margin: "0 0 12px" }}>
+            Book a consultation to get started. We will review your background and map out the best path forward.
+          </p>
+          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#475569", margin: "0 0 40px" }}>
+            Have questions first? Email us at{" "}
+            <a href="mailto:consultingestel@gmail.com" style={{ color: "#94a3b8", fontWeight: 600 }}>consultingestel@gmail.com</a>
+            {" "}and we will get back to you within 24 hours.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginBottom: 36 }}>
-            <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 15, padding: "14px 28px" }}>
+            <a href={CONSULTATION_PAYMENT_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 15, padding: "14px 28px" }}>
               Book a Consultation
             </a>
             <a href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry" className="btn-outline-white">
               Send an Email
             </a>
           </div>
-          <p style={{ fontSize: 13, color: "#475569" }}>consultingestel@gmail.com</p>
         </div>
       </section>
 
@@ -998,10 +1008,7 @@ export default function EstelWebsite() {
             <p style={{ fontSize: 12, color: "#334155", margin: 0 }}>
               This website provides educational guidance only. We do not offer legal immigration advice.
             </p>
-            <button
-              onClick={() => setTermsOpen(true)}
-              style={{ background: "none", border: "none", cursor: "pointer", fontSize: 12, color: "#64748b", textDecoration: "underline", padding: 0 }}
-            >
+            <button onClick={() => setTermsOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 12, color: "#64748b", textDecoration: "underline", padding: 0 }}>
               Terms and Conditions
             </button>
           </div>
