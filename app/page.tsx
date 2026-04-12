@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 
 const CALENDAR_LINK = "https://calendar.app.google/kw2WnqDiHVXEgxQ46";
-const CONSULTATION_PAYMENT_LINK = "https://buy.stripe.com/bJecN48jld8Y3HxfGd4Vy04";
+const WHATSAPP_LINK = "https://wa.me/12135749150?text=Hi%20Estel%20Global%20Education%2C%20I%27m%20interested%20in%20your%20services.";
 
 export default function EstelWebsite() {
   const [activeNeed, setActiveNeed] = useState<number | null>(0);
@@ -122,7 +122,7 @@ export default function EstelWebsite() {
   ];
 
   const steps = [
-    { title: "Book a Consultation", desc: "Pick a time that works for you directly on the calendar. No back and forth needed." },
+    { title: "Book a Consultation", desc: "Pick a time on the calendar. The consultation fee is collected at booking." },
     { title: "Receive Your Plan", desc: "Get a clear school and application strategy tailored to you." },
     { title: "Prepare Your Documents", desc: "Build strong applications with guided, structured support." },
     { title: "Enter the Interview Ready", desc: "Approach your visa interview with preparation and confidence." },
@@ -176,7 +176,7 @@ export default function EstelWebsite() {
     },
     {
       q: "Can we reach out before booking?",
-      a: "Yes. If you have questions before committing to a consultation, email us at consultingestel@gmail.com and we will be happy to help.",
+      a: "Yes. If you have questions before committing to a consultation, email us at consultingestel@gmail.com or message us on WhatsApp and we will be happy to help.",
     },
   ];
 
@@ -307,6 +307,23 @@ export default function EstelWebsite() {
           white-space: nowrap;
         }
         .btn-secondary:hover { background: #f8fafc; border-color: #94a3b8; }
+        .btn-whatsapp {
+          background: #25D366;
+          color: white;
+          border-radius: 14px;
+          padding: 14px 28px;
+          font-weight: 600;
+          font-size: 15px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.2s ease;
+          text-decoration: none;
+          white-space: nowrap;
+          border: none;
+          cursor: pointer;
+        }
+        .btn-whatsapp:hover { background: #1da851; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
         .btn-outline-white {
           background: transparent;
           color: white;
@@ -349,18 +366,6 @@ export default function EstelWebsite() {
         @keyframes pulse-green {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.6; transform: scale(0.85); }
-        }
-        .consultation-card {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 16px;
-          padding: 16px 20px;
-          margin-top: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 16px;
-          flex-wrap: wrap;
         }
         .testimonial-card {
           background: white;
@@ -461,6 +466,15 @@ export default function EstelWebsite() {
           border-radius: 24px;
           padding: 32px;
         }
+        .contact-method {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 20px;
+          padding: 24px 28px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
         .modal-overlay {
           position: fixed;
           inset: 0;
@@ -517,9 +531,7 @@ export default function EstelWebsite() {
                 <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 6px" }}>Legal</p>
                 <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 700, color: "#0f172a", margin: 0 }}>Terms and Conditions</h2>
               </div>
-              <button onClick={() => setTermsOpen(false)} style={{ background: "#f1f5f9", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#64748b", flexShrink: 0 }}>
-                ✕
-              </button>
+              <button onClick={() => setTermsOpen(false)} style={{ background: "#f1f5f9", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", fontSize: 16, color: "#64748b", flexShrink: 0 }}>✕</button>
             </div>
             <p style={{ fontSize: 13, color: "#94a3b8", marginBottom: 28, paddingBottom: 24, borderBottom: "1px solid #f1f5f9" }}>
               Last updated: January 2026. By using our services you agree to the terms below.
@@ -535,9 +547,7 @@ export default function EstelWebsite() {
                 Questions about these terms? Email us at{" "}
                 <a href="mailto:consultingestel@gmail.com" style={{ color: "#0f172a", fontWeight: 600 }}>consultingestel@gmail.com</a>
               </p>
-              <button onClick={() => setTermsOpen(false)} className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-                Close
-              </button>
+              <button onClick={() => setTermsOpen(false)} className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>Close</button>
             </div>
           </div>
         </div>
@@ -546,9 +556,7 @@ export default function EstelWebsite() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="mobile-menu">
-          <button onClick={() => setMobileMenuOpen(false)} style={{ position: "absolute", top: 20, right: 24, fontSize: 24, background: "none", border: "none", cursor: "pointer", color: "#0f172a" }}>
-            ✕
-          </button>
+          <button onClick={() => setMobileMenuOpen(false)} style={{ position: "absolute", top: 20, right: 24, fontSize: 24, background: "none", border: "none", cursor: "pointer", color: "#0f172a" }}>✕</button>
           {navItems.map((item) => (
             <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} style={{ fontSize: 18, fontWeight: 500, color: "#0f172a", padding: "13px 0", textDecoration: "none", borderBottom: "1px solid #f1f5f9" }}>
               {item.label}
@@ -567,7 +575,6 @@ export default function EstelWebsite() {
             <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: "#0f172a", lineHeight: 1.1 }}>Estel Global</span>
             <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#94a3b8" }}>Education</span>
           </a>
-
           <nav className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: 2 }}>
             {navItems.map((item) => (
               <a key={item.label} href={item.href} style={{ fontSize: 13, fontWeight: activeSection === item.href.replace("#", "") ? 600 : 400, color: activeSection === item.href.replace("#", "") ? "#0f172a" : "#64748b", textDecoration: "none", padding: "6px 10px", borderRadius: 8, transition: "all 0.15s ease" }}>
@@ -575,14 +582,11 @@ export default function EstelWebsite() {
               </a>
             ))}
           </nav>
-
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary hide-mobile">
               Book a Consultation
             </a>
-            <button className="show-mobile" onClick={() => setMobileMenuOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 22, color: "#0f172a", padding: 4 }}>
-              ☰
-            </button>
+            <button className="show-mobile" onClick={() => setMobileMenuOpen(true)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 22, color: "#0f172a", padding: 4 }}>☰</button>
           </div>
         </div>
       </header>
@@ -598,7 +602,6 @@ export default function EstelWebsite() {
                 <span className="dot-green" />
                 Now accepting new students
               </div>
-
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 700, lineHeight: 1.15, color: "#0f172a", margin: "0 0 20px" }}>
                 Your path to studying in the{" "}
                 <span style={{ position: "relative", display: "inline-block" }}>
@@ -606,37 +609,20 @@ export default function EstelWebsite() {
                   <span style={{ position: "absolute", bottom: -4, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, #0f172a, #64748b)", borderRadius: 2 }} />
                 </span>
               </h1>
-
               <p style={{ fontSize: 17, lineHeight: 1.8, color: "#475569", margin: "0 0 20px", maxWidth: 460 }}>
                 Step-by-step guidance for international students at both the undergraduate and graduate level, from choosing the right university to walking into your visa interview with confidence.
               </p>
-
-              {/* Program level badges */}
               <div style={{ display: "flex", gap: 8, marginBottom: 28, flexWrap: "wrap" }}>
                 <span className="level-badge" style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", color: "#166534" }}>Undergraduate</span>
                 <span className="level-badge" style={{ background: "#eff6ff", border: "1px solid #bfdbfe", color: "#1e40af" }}>Graduate</span>
               </div>
-
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24 }}>
                 <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
                   Book a Consultation
                 </a>
                 <a href="#services" className="btn-secondary">See Pricing</a>
               </div>
-
-              {/* Consultation info note */}
-              <div className="consultation-card">
-                <div>
-                  <p style={{ fontSize: 13, fontWeight: 600, color: "#0f172a", margin: "0 0 2px" }}>Not sure where to start?</p>
-                  <p style={{ fontSize: 13, color: "#64748b", margin: 0 }}>
-                    Not sure where to start? Email us at{" "}
-                    <a href="mailto:consultingestel@gmail.com" style={{ color: "#0f172a", fontWeight: 600 }}>consultingestel@gmail.com</a>
-                    {" "}with any questions.
-                  </p>
-                </div>
-              </div>
-
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 20 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {["School selection", "Document prep", "Visa readiness", "1-on-1 support"].map((tag) => (
                   <span key={tag} className="feature-pill">
                     <span className="check-green">✓</span> {tag}
@@ -750,7 +736,6 @@ export default function EstelWebsite() {
               Available for both undergraduate and graduate applicants. Start simple or go all-in. Each tier builds on the last.
             </p>
           </div>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, alignItems: "stretch" }}>
             {services.map((service) => (
               <div key={service.title} className="card-hover" style={{ borderRadius: 24, border: service.featured ? "2px solid #0f172a" : "1px solid #e2e8f0", background: service.featured ? "#0f172a" : "white", padding: 32, display: "flex", flexDirection: "column" }}>
@@ -781,7 +766,6 @@ export default function EstelWebsite() {
               </div>
             ))}
           </div>
-
           <p style={{ textAlign: "center", fontSize: 13, color: "#94a3b8", marginTop: 28 }}>
             Not sure which package fits?{" "}
             <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" style={{ color: "#0f172a", fontWeight: 600 }}>
@@ -855,7 +839,6 @@ export default function EstelWebsite() {
               Everything we do is grounded in a clear purpose: to help international students move forward with confidence, clarity, and real support.
             </p>
           </div>
-
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
             {missionValues.map((item, i) => (
               <div key={item.label} className="mission-card card-hover" style={{ borderTop: i === 0 ? "3px solid #0f172a" : i === 1 ? "3px solid #334155" : "3px solid #64748b" }}>
@@ -909,7 +892,7 @@ export default function EstelWebsite() {
                 Direct, practical, honest support.
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                {["Guidance shaped by real international student experience", "Support for both undergraduate and graduate applicants", "A structured process instead of scattered advice", "Private, direct contact via email"].map((point) => (
+                {["Guidance shaped by real international student experience", "Support for both undergraduate and graduate applicants", "A structured process instead of scattered advice", "Private, direct contact via email and WhatsApp"].map((point) => (
                   <div key={point} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                     <span style={{ color: "#22c55e", fontWeight: 700, flexShrink: 0, marginTop: 2, fontSize: 13 }}>✓</span>
                     <p style={{ fontSize: 14, color: "#475569", margin: 0, lineHeight: 1.65 }}>{point}</p>
@@ -962,28 +945,49 @@ export default function EstelWebsite() {
 
       {/* Contact */}
       <section id="contact" style={{ background: "#0f172a", padding: "88px 24px" }}>
-        <div style={{ maxWidth: 660, margin: "0 auto", textAlign: "center" }}>
-          <span style={{ display: "inline-block", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#64748b", marginBottom: 28 }}>
-            Start Your Journey
-          </span>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 4vw, 46px)", fontWeight: 700, color: "white", margin: "0 0 16px", lineHeight: 1.2 }}>
-            Ready to move forward?
-          </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#64748b", margin: "0 0 12px" }}>
-            Book a consultation to get started. We will review your background and map out the best path forward.
-          </p>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#475569", margin: "0 0 40px" }}>
-            Have questions first? Email us at{" "}
-            <a href="mailto:consultingestel@gmail.com" style={{ color: "#94a3b8", fontWeight: 600 }}>consultingestel@gmail.com</a>
-            {" "}and we will get back to you within 24 hours.
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginBottom: 36 }}>
-            <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 15, padding: "14px 28px" }}>
-              Book a Consultation
-            </a>
-            <a href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry" className="btn-outline-white">
-              Send an Email
-            </a>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
+            <span style={{ display: "inline-block", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#64748b", marginBottom: 24 }}>
+              Start Your Journey
+            </span>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 4vw, 46px)", fontWeight: 700, color: "white", margin: "0 0 16px", lineHeight: 1.2 }}>
+              Ready to move forward?
+            </h2>
+            <p style={{ fontSize: 16, lineHeight: 1.8, color: "#64748b", margin: "0 auto", maxWidth: 520 }}>
+              Book a consultation, send an email, or message us on WhatsApp. We will get back to you within 24 hours.
+            </p>
+          </div>
+
+          {/* Three contact method cards */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 40 }}>
+            {/* Calendar */}
+            <div className="contact-method">
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#64748b", margin: 0 }}>Book a Consultation</p>
+              <p style={{ fontSize: 13, color: "#94a3b8", margin: "4px 0 16px", lineHeight: 1.5 }}>Pick a time directly on the calendar.</p>
+              <a href={CALENDAR_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ justifyContent: "center", width: "100%" }}>
+                Open Calendar
+              </a>
+            </div>
+
+            {/* WhatsApp */}
+            <div className="contact-method">
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#64748b", margin: 0 }}>WhatsApp</p>
+              <p style={{ fontSize: 13, color: "#94a3b8", margin: "4px 0 4px", lineHeight: 1.5 }}>+1 (213) 574-9150</p>
+              <p style={{ fontSize: 12, color: "#475569", margin: "0 0 16px" }}>Message us with any questions.</p>
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ justifyContent: "center", width: "100%" }}>
+                Open WhatsApp
+              </a>
+            </div>
+
+            {/* Email */}
+            <div className="contact-method">
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#64748b", margin: 0 }}>Email</p>
+              <p style={{ fontSize: 13, color: "#94a3b8", margin: "4px 0 4px", lineHeight: 1.5 }}>consultingestel@gmail.com</p>
+              <p style={{ fontSize: 12, color: "#475569", margin: "0 0 16px" }}>We respond within 24 hours.</p>
+              <a href="mailto:consultingestel@gmail.com?subject=Estel%20Global%20Education%20Inquiry" className="btn-outline-white" style={{ justifyContent: "center", width: "100%" }}>
+                Send an Email
+              </a>
+            </div>
           </div>
         </div>
       </section>
