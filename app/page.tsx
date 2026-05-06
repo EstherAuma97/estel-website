@@ -4,6 +4,158 @@ import { useState, useEffect, useRef } from "react";
 
 const CALENDAR_LINK = "https://calendar.app.google/kw2WnqDiHVXEgxQ46";
 const WHATSAPP_LINK = "https://wa.me/12135749150?text=Hi%20Estel%20Global%20Education%2C%20I%27m%20interested%20in%20your%20services.";
+const PLAYBOOK_DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=1voiggGdncno4amgLZuRT1FMMJovJhwo2";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mgodypgv";
+
+function PlaybookSection() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+    setStatus("loading");
+    setErrorMsg("");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ email, source: "Playbook Download" }),
+      });
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+        setErrorMsg("Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMsg("Something went wrong. Please try again.");
+    }
+  };
+
+  const playbookSections = [
+    { number: "01", title: "The Timeline", desc: "Month-by-month application calendar for undergrad, Masters, and PhD." },
+    { number: "02", title: "Choosing Programs", desc: "How to build a reach, match, and safety school list that gives you real options." },
+    { number: "03", title: "The Documents", desc: "Every document you need, by program level, and what to watch out for." },
+    { number: "04", title: "Your Personal Statement", desc: "Structure, mistakes to avoid, and before-and-after examples." },
+    { number: "05", title: "Funding", desc: "How not to pay full price — TAs, RAs, fellowships, and external scholarships." },
+    { number: "06", title: "After You Apply", desc: "Comparing offers, the I-20, SEVIS fee, and visa interview prep." },
+  ];
+
+  return (
+    <section id="playbook" style={{ padding: "88px 24px", background: "#0f172a" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 64, alignItems: "center" }} className="playbook-grid">
+          <style>{`@media(max-width:768px){.playbook-grid{grid-template-columns:1fr!important}}`}</style>
+
+          {/* Left: info */}
+          <div>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#475569", marginBottom: 16 }}>
+              <span style={{ width: 20, height: 2, background: "#475569", borderRadius: 2, flexShrink: 0 }} />
+              Free Resource
+            </span>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(28px, 3vw, 42px)", fontWeight: 700, lineHeight: 1.2, color: "white", margin: "0 0 16px" }}>
+              The U.S. School Application Playbook.
+            </h2>
+            <p style={{ fontSize: 16, lineHeight: 1.8, color: "#94a3b8", margin: "0 0 36px" }}>
+              A free, no-filler guide covering every stage of the U.S. application process — built from real experience helping students across Africa and Asia. Six sections. Everything you need before you start.
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {playbookSections.map((s) => (
+                <div key={s.number} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 700, color: "#475569", flexShrink: 0, marginTop: 1, minWidth: 24 }}>{s.number}</span>
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 600, color: "white", margin: "0 0 2px" }}>{s.title}</p>
+                    <p style={{ fontSize: 13, color: "#64748b", margin: 0, lineHeight: 1.5 }}>{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: email capture card */}
+          <div style={{ background: "white", borderRadius: 24, padding: 36 }}>
+            {status === "success" ? (
+              <div style={{ textAlign: "center", padding: "20px 0" }}>
+                <div style={{ width: 56, height: 56, background: "#f0fdf4", border: "2px solid #bbf7d0", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", fontSize: 24 }}>✓</div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: "#0f172a", margin: "0 0 10px" }}>You're all set.</h3>
+                <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7, margin: "0 0 28px" }}>
+                  Your playbook is ready to download. We have also sent a copy to your email.
+                </p>
+                <a
+                  href={PLAYBOOK_DOWNLOAD_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, background: "#0f172a", color: "white", borderRadius: 14, padding: "13px 28px", fontWeight: 600, fontSize: 14, textDecoration: "none", width: "100%" }}
+                >
+                  Download the Playbook
+                </a>
+                <p style={{ fontSize: 12, color: "#94a3b8", marginTop: 16, marginBottom: 0 }}>
+                  Africa · Asia · and Beyond
+                </p>
+              </div>
+            ) : (
+              <>
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 8px" }}>Free Download</p>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: "#0f172a", margin: "0 0 10px" }}>
+                    Get the Playbook
+                  </h3>
+                  <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.65, margin: 0 }}>
+                    Enter your email and we will send you the full guide. No spam, just the resource.
+                  </p>
+                </div>
+
+                <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: 16, padding: "16px 20px", marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "#0f172a", margin: "0 0 10px" }}>What's inside:</p>
+                  {["12-month application timeline", "Document checklist by program level", "SOP structure and common mistakes", "Funding types and external scholarships", "Post-acceptance visa and housing steps"].map((item) => (
+                    <div key={item} style={{ display: "flex", gap: 8, alignItems: "flex-start", marginBottom: 6 }}>
+                      <span style={{ color: "#22c55e", fontWeight: 700, fontSize: 12, flexShrink: 0 }}>✓</span>
+                      <p style={{ fontSize: 13, color: "#475569", margin: 0, lineHeight: 1.4 }}>{item}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email address"
+                    required
+                    style={{ width: "100%", padding: "13px 16px", borderRadius: 12, border: "1.5px solid #e2e8f0", fontSize: 14, color: "#0f172a", outline: "none", transition: "border-color 0.2s", fontFamily: "'DM Sans', system-ui, sans-serif" }}
+                    onFocus={(e) => e.target.style.borderColor = "#94a3b8"}
+                    onBlur={(e) => e.target.style.borderColor = "#e2e8f0"}
+                  />
+                  {errorMsg && (
+                    <p style={{ fontSize: 13, color: "#ef4444", margin: 0 }}>{errorMsg}</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    style={{ background: "#0f172a", color: "white", borderRadius: 14, padding: "13px 20px", fontWeight: 600, fontSize: 14, border: "none", cursor: status === "loading" ? "not-allowed" : "pointer", opacity: status === "loading" ? 0.7 : 1, transition: "all 0.2s ease", fontFamily: "'DM Sans', system-ui, sans-serif" }}
+                  >
+                    {status === "loading" ? "Sending..." : "Get the Free Playbook"}
+                  </button>
+                </form>
+
+                <p style={{ fontSize: 12, color: "#94a3b8", marginTop: 14, marginBottom: 0, textAlign: "center" }}>
+                  Free. No commitment required. Unsubscribe anytime.
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function EstelWebsite() {
   const [activeNeed, setActiveNeed] = useState<number | null>(0);
@@ -18,7 +170,7 @@ export default function EstelWebsite() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ["home", "why-usa", "services", "how-it-works", "about", "mission", "faq", "contact"];
+      const sections = ["home", "why-usa", "services", "playbook", "how-it-works", "about", "mission", "faq", "contact"];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
@@ -776,6 +928,9 @@ export default function EstelWebsite() {
           </p>
         </div>
       </section>
+
+      {/* Free Playbook */}
+      <PlaybookSection />
 
       {/* How It Works + About */}
       <section id="how-it-works" style={{ padding: "88px 24px", background: "#f8fafc" }}>
